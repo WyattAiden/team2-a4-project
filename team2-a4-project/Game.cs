@@ -19,7 +19,7 @@ namespace Game10003
         public void Setup()
         {
             Window.SetTitle("Fishing");
-            Window.SetSize(600, 600);
+            Window.SetSize(800, 600);
         }
 
         /// <summary>
@@ -27,9 +27,14 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-
+            Window.ClearBackground(color: Color.White);
+            DrawScenery();
         }
         public void DrawScenery()
+        {
+
+        }
+        public void DrawFisherman()
         {
 
         }
