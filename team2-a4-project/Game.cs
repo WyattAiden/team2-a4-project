@@ -18,13 +18,18 @@ namespace Game10003
         /// </summary>
         public void Setup()
         {
-
+            Window.SetTitle("Fishing");
+            Window.SetSize(600, 600);
         }
 
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
         public void Update()
+        {
+
+        }
+        public void DrawScenery()
         {
 
         }
