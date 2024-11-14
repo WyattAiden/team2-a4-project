@@ -10,9 +10,10 @@ namespace Game10003
     /// </summary>
     public class Game
     {
-        // Place your variables here:
-
-
+        //Custom Colors
+        Color VeryLightBlue = new Color(225, 225, 255);
+        Color Brown = new Color(100, 100, 50);
+        Color DarkGreen = new Color(100, 200, 100);
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -27,16 +28,26 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(color: Color.White);
+            Window.ClearBackground(color: Color.LightGray);
+            DrawFisherman();
             DrawScenery();
         }
         public void DrawScenery()
         {
-
+            Draw.FillColor = Color.Blue;
+            Draw.LineColor = Color.Clear;
+            Draw.Rectangle(0, 350, 800, 250);
+            Draw.FillColor = VeryLightBlue;
+            Draw.Rectangle(0, 350, 800, 3);
+            Draw.FillColor = DarkGreen;
+            Draw.Rectangle(0, 340, 150, 360);
+            Draw.FillColor = Brown;
+            Draw.Rectangle(150, 340, 200, 5);
         }
         public void DrawFisherman()
         {
-
+            Draw.FillColor = Color.Red;
+            Draw.Square(40, 300, 40);
         }
     }
 }
