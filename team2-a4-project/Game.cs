@@ -10,8 +10,15 @@ namespace Game10003
     /// </summary>
     public class Game
     {
+        //Floats
+        float FishBar;
+
         //Bools
+        bool IsIdle;
+        bool IsPrepping;
         bool IsCasting;
+        bool IsFishBarFull;
+        bool HasCaught;
         
         //Custom Colors
         Color VeryLightBlue = new Color(225, 225, 255);
@@ -28,6 +35,11 @@ namespace Game10003
         {
             Window.SetTitle("Fishing");
             Window.SetSize(800, 600);
+            IsIdle = true;
+            IsPrepping = false;
+            IsCasting = false;
+            HasCaught = false;
+            FishBar = 0;
         }
 
         /// <summary>
@@ -40,10 +52,28 @@ namespace Game10003
             DrawFishingLine();
             DrawScenery();
 
+            if (IsIdle && Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+            {
+                IsPrepping = true;
+                IsIdle = false;
+            }
             
-            if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            if (IsPrepping && Input.IsKeyboardKeyDown(KeyboardInput.Space))
             {
                 IsCasting = true;
+                IsPrepping = false;
+            }
+
+            if (IsCasting && IsFishBarFull)
+            {
+                HasCaught = true;
+                IsCasting = false;
+            }
+
+            if (HasCaught && Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            {
+                IsIdle = true;
+                HasCaught = false;
             }
 
         }
