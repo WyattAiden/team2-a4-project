@@ -10,10 +10,17 @@ namespace Game10003
     /// </summary>
     public class Game
     {
+        //Bools
+        bool IsCasting;
+        
         //Custom Colors
         Color VeryLightBlue = new Color(225, 225, 255);
         Color Brown = new Color(100, 100, 50);
         Color DarkGreen = new Color(100, 200, 100);
+
+        //Fishing Line Vectors
+        Vector2 Line1 = new Vector2(350, 280);
+        Vector2 Line2 = new Vector2(400, 350);
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -30,7 +37,15 @@ namespace Game10003
         {
             Window.ClearBackground(color: Color.LightGray);
             DrawFisherman();
+            DrawFishingLine();
             DrawScenery();
+
+            
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            {
+                IsCasting = true;
+            }
+
         }
         public void DrawScenery()
         {
@@ -44,10 +59,31 @@ namespace Game10003
             Draw.FillColor = Brown;
             Draw.Rectangle(150, 340, 200, 5);
         }
+        
         public void DrawFisherman()
         {
             Draw.FillColor = Color.Red;
-            Draw.Square(40, 300, 40);
+            Draw.Rectangle(300, 250, 50, 90);
+        }
+        
+        public void DrawFishingLine()
+        {
+            if (IsCasting)
+            {
+                Draw.LineColor = Color.White;
+                Draw.LineSize = 2;
+                Draw.Line(Line1, Line2);
+            }
+            if (IsCasting && Line2.X > 400 && !Input.IsMouseButtonDown(MouseInput.Left))
+            {
+                Line2.X -= 1;
+            }
+            if (IsCasting && Line2.X < 650 && Input.IsMouseButtonDown(MouseInput.Left))
+            {
+                Line2.X += 1;
+            }
+
+            
         }
     }
 }
