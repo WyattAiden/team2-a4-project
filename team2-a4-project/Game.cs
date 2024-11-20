@@ -11,7 +11,6 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        Texture2D Fisher;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
