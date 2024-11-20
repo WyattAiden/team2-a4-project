@@ -49,16 +49,15 @@ namespace Game10003
         {
             Window.ClearBackground(color: Color.LightGray);
             DrawFisherman();
-            DrawFishingLine();
             DrawScenery();
-
-            if (IsIdle && Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+            //Player State changes kept here for ease of access.
+            if (IsIdle && Input.IsKeyboardKeyReleased(KeyboardInput.Space))
             {
                 IsPrepping = true;
                 IsIdle = false;
             }
             
-            if (IsPrepping && Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            if (IsPrepping && Input.IsKeyboardKeyPressed(KeyboardInput.Space))
             {
                 IsCasting = true;
                 IsPrepping = false;
@@ -70,11 +69,41 @@ namespace Game10003
                 IsCasting = false;
             }
 
-            if (HasCaught && Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            if (HasCaught && Input.IsMouseButtonPressed(MouseInput.Left))
             {
                 IsIdle = true;
                 HasCaught = false;
             }
+
+            //Idle State Code Here
+
+
+
+            //Prepping State Code Here
+
+            if (IsPrepping)
+            {
+                Draw.Rectangle(Line2.X, 320, 5, 10);
+                if (Line2.X < 650 && Input.IsMouseButtonDown(MouseInput.Left))
+                {
+                    Line2.X += 1;
+                }
+                if (Line2.X > 400 && !Input.IsMouseButtonDown(MouseInput.Left))
+                {
+                    Line2.X -= 1;
+                }
+            }
+
+            //Casting State Code Here
+
+            if (IsCasting)
+            {
+                DrawFishingLine();
+                
+            }
+
+            //Display State Code Here
+
 
         }
         public void DrawScenery()
@@ -93,6 +122,7 @@ namespace Game10003
         public void DrawFisherman()
         {
             Draw.FillColor = Color.Red;
+            Draw.LineColor = Color.Clear;
             Draw.Rectangle(300, 250, 50, 90);
         }
         
@@ -104,15 +134,7 @@ namespace Game10003
                 Draw.LineSize = 2;
                 Draw.Line(Line1, Line2);
             }
-            if (IsCasting && Line2.X > 400 && !Input.IsMouseButtonDown(MouseInput.Left))
-            {
-                Line2.X -= 1;
-            }
-            if (IsCasting && Line2.X < 650 && Input.IsMouseButtonDown(MouseInput.Left))
-            {
-                Line2.X += 1;
-            }
-
+            
             
         }
     }
