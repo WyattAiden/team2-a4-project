@@ -10,16 +10,15 @@ namespace Game10003
     /// </summary>
     public class Game
     {
+        //Ints
+        int GameState;
+        
         //Floats
         float FishBar;
 
         //Bools
-        bool IsIdle;
-        bool IsPrepping;
-        bool IsCasting;
         bool IsFishBarFull;
-        bool HasCaught;
-        
+
         //Custom Colors
         Color VeryLightBlue = new Color(225, 225, 255);
         Color Brown = new Color(100, 100, 50);
@@ -35,10 +34,7 @@ namespace Game10003
         {
             Window.SetTitle("Fishing");
             Window.SetSize(800, 600);
-            IsIdle = true;
-            IsPrepping = false;
-            IsCasting = false;
-            HasCaught = false;
+            GameState = 0;
             FishBar = 0;
         }
 
@@ -50,38 +46,38 @@ namespace Game10003
             Window.ClearBackground(color: Color.LightGray);
             DrawFisherman();
             DrawScenery();
-            //Player State changes kept here for ease of access.
-            if (IsIdle && Input.IsKeyboardKeyReleased(KeyboardInput.Space))
+            //State Machine
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
             {
-                IsPrepping = true;
-                IsIdle = false;
-            }
-            
-            if (IsPrepping && Input.IsKeyboardKeyPressed(KeyboardInput.Space))
-            {
-                IsCasting = true;
-                IsPrepping = false;
-            }
+                if (GameState <= 2)
+                {
+                    GameState++;
+                }
 
-            if (IsCasting && IsFishBarFull)
-            {
-                HasCaught = true;
-                IsCasting = false;
+                else if (GameState == 3)
+                {
+                    GameState = 0;
+                }
             }
-
-            if (HasCaught && Input.IsMouseButtonPressed(MouseInput.Left))
+            else if (GameState == 2 && IsFishBarFull)
             {
-                IsIdle = true;
-                HasCaught = false;
+                GameState++;
+            }
+            else if (Input.IsKeyboardKeyPressed(KeyboardInput.Escape))
+            {
+                GameState = 0;
             }
 
             //Idle State Code Here
+            if (GameState == 0)
+            {
 
+            }
 
 
             //Prepping State Code Here
 
-            if (IsPrepping)
+            if (GameState == 1)
             {
                 Draw.Rectangle(Line2.X, 320, 5, 10);
                 if (Line2.X < 650 && Input.IsMouseButtonDown(MouseInput.Left))
@@ -96,14 +92,17 @@ namespace Game10003
 
             //Casting State Code Here
 
-            if (IsCasting)
+            if (GameState == 2)
             {
                 DrawFishingLine();
                 
             }
 
             //Display State Code Here
+            if (GameState == 3)
+            {
 
+            }
 
         }
         public void DrawScenery()
