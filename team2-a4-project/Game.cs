@@ -11,7 +11,7 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-
+        
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -20,6 +20,8 @@ namespace Game10003
             Window.SetTitle("Fishing");
             Window.SetSize(800, 600);
             
+
+            af.cast();
         }
 
         /// <summary>
