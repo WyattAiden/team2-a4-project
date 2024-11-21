@@ -49,7 +49,7 @@ namespace Game10003
             //State Machine
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
             {
-                if (GameState <= 2)
+                if (GameState <= 1)
                 {
                     GameState++;
                 }
