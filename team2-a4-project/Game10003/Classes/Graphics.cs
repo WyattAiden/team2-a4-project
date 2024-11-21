@@ -156,7 +156,7 @@ namespace Game10003
             Raylib.UnloadTexture(texture);
         }
 
-        internal static void LoadTexture(object C, object wasob, object source, object repos, object value1, object value2, Assets assets, object value3)
+        internal static void LoadTexture(object C, object wasob, object source, object repos, object value1, object value2, Texturfishing assets, object value3)
         {
             throw new NotImplementedException();
         }

@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace Game10003
 {
-    public class Assets
+    public class Texturfishing
     {
         Texture2D FisherB;
         Texture2D FisherF;
@@ -17,7 +17,7 @@ namespace Game10003
 
         }
        
-        public void castF()
+        public void CastF()
         {
             Graphics.Draw(FisherF, Fisherpos);
         }
