@@ -20,8 +20,6 @@ namespace Game10003
             Window.SetTitle("Fishing");
             Window.SetSize(800, 600);
             
-
-            af.cast();
         }
 
         /// <summary>
