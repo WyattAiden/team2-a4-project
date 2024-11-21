@@ -63,7 +63,7 @@ namespace Game10003
             {
                 GameState++;
             }
-            else if (Input.IsKeyboardKeyPressed(KeyboardInput.Escape))
+            else if (Input.IsKeyboardKeyPressed(KeyboardInput.R))
             {
                 GameState = 0;
             }
