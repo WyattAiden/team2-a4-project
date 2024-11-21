@@ -127,7 +127,7 @@ namespace Game10003
         
         public void DrawFishingLine()
         {
-            if (IsCasting)
+            if (GameState == 2)
             {
                 Draw.LineColor = Color.White;
                 Draw.LineSize = 2;
