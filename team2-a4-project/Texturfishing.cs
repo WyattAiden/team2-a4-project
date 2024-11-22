@@ -8,7 +8,7 @@ namespace Game10003
         //Texturfishing tf = new Texturfishing();
         Texture2D FisherB;
         Texture2D FisherF;
-        public Vector2 Fisherpos = new Vector2(250, 300);
+        public Vector2 Fisherpos = new Vector2(225, 215);
 
        
         public void Setup()

@@ -57,7 +57,7 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(color: Color.LightGray);
-            DrawFisherman();
+            
             DrawScenery();
             //State Machine
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
@@ -87,7 +87,7 @@ namespace Game10003
             //Idle State Code Here
             if (GameState == 0)
             {
-
+                tf.CastB();
             }
 
 
@@ -95,6 +95,7 @@ namespace Game10003
 
             if (GameState == 1)
             {
+                tf.CastB();
                 Draw.Rectangle(Line2.X, 320, 5, 10);
                 if (Line2.X < 650 && Input.IsMouseButtonDown(MouseInput.Left))
                 {
@@ -110,6 +111,7 @@ namespace Game10003
 
             if (GameState == 2)
             {
+                tf.CastF();
                 DrawFishingLine();
                 FishTimer++;
                 if (FishTimer >= 350)
@@ -143,7 +145,7 @@ namespace Game10003
             //Display State Code Here
             if (GameState == 3)
             {
-
+                tf.CastB();
             }
 
             if (GameState != 2)
@@ -164,12 +166,7 @@ namespace Game10003
             Draw.Rectangle(150, 340, 200, 5);
         }
         
-        public void DrawFisherman()
-        {
-            Draw.FillColor = Color.Red;
-            Draw.LineColor = Color.Clear;
-            Draw.Rectangle(300, 250, 50, 90);
-        }
+        
         
         public void DrawFishingLine()
         {
