@@ -36,6 +36,9 @@ namespace Game10003
         //Texture Portal
         Texturfishing tf = new Texturfishing();
 
+        //Audio Portal
+        Audiofishing af = new Audiofishing();
+
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -48,7 +51,7 @@ namespace Game10003
             FishBar = 250;
             FishTimer = Random.Integer(0, 300);
             tf.Setup();
-
+            af.Setup();
         }
 
         /// <summary>
@@ -95,7 +98,13 @@ namespace Game10003
 
             if (GameState == 1)
             {
+                //Sounds here
+                af.watersplash();
+                af.cast();
+
+                //Fisherman Texture Here
                 tf.CastB();
+
                 Draw.Rectangle(Line2.X, 320, 5, 10);
                 if (Line2.X < 650 && Input.IsMouseButtonDown(MouseInput.Left))
                 {
@@ -111,7 +120,12 @@ namespace Game10003
 
             if (GameState == 2)
             {
+                //Sounds Here
+                af.watersplash();
+
+                //Fisherman Texture Here
                 tf.CastF();
+
                 DrawFishingLine();
                 FishTimer++;
                 if (FishTimer >= 350)
