@@ -12,6 +12,7 @@ namespace Game10003
     {
         //Ints
         int GameState;
+        int FishTimer;
         
         //Floats
         float FishBar;
@@ -39,6 +40,7 @@ namespace Game10003
             Window.SetSize(800, 600);
             GameState = 0;
             FishBar = 250;
+            FishTimer = Random.Integer(0, 300);
         }
 
         /// <summary>
@@ -65,10 +67,13 @@ namespace Game10003
             else if (GameState == 2 && IsFishBarFull)
             {
                 GameState++;
+                Bar2.Y = 250;
+                FishTimer = 0;
             }
             else if (Input.IsKeyboardKeyPressed(KeyboardInput.R))
             {
                 GameState = 0;
+                FishTimer = 0;
             }
 
             //Idle State Code Here
@@ -97,30 +102,32 @@ namespace Game10003
 
             if (GameState == 2)
             {
-                FishBar = Bar2.Y;
-                DrawFishingLine();
-                if (Bar2.Y <= 250 && !Input.IsMouseButtonPressed(MouseInput.Left))
+ 
+                FishTimer++;
+                if (FishTimer >= 350)
                 {
-                    Bar2.Y += 1;
-                }
-                else if (Bar2.Y >= 99 && Input.IsMouseButtonPressed(MouseInput.Left))
-                {
+                    FishBar = Bar2.Y;
+                    DrawFishingLine();
+                    if (Bar2.Y <= 250 && !Input.IsMouseButtonPressed(MouseInput.Left))
                     {
-                        Bar2.Y -= 20;
+                        Bar2.Y += 1;
                     }
+                    else if (Bar2.Y >= 99 && Input.IsMouseButtonPressed(MouseInput.Left))
+                    {
+                        {
+                            Bar2.Y -= 20;
+                        }
+                    }
+                    if (FishBar <= 100)
+                    {
+                        IsFishBarFull = true;
+                    }
+
+                    Draw.LineColor = Color.Red;
+                    Draw.LineSize = 10;
+                    Draw.Line(Bar1, Bar2);
                 }
-                if (FishBar <= 100)
-                {
-                    IsFishBarFull = true;
-                }
-                if (IsFishBarFull)
-                {
-                    GameState++;
-                    Bar2.Y = 250;
-                }
-                Draw.LineColor = Color.Red;
-                Draw.LineSize = 10;
-                Draw.Line(Bar1, Bar2);
+                
             }
 
             //Display State Code Here
