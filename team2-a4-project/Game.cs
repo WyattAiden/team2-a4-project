@@ -11,7 +11,7 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        
+        Texturfishing tf = new Texturfishing();
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -19,6 +19,7 @@ namespace Game10003
         {
             Window.SetTitle("Fishing");
             Window.SetSize(800, 600);
+            tf.Setup();
             
         }
 
@@ -29,6 +30,7 @@ namespace Game10003
         {
             Window.ClearBackground(color: Color.White);
             DrawScenery();
+            tf.CastF();
         }
         public void DrawScenery()
         {
