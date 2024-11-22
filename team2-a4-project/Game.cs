@@ -32,6 +32,11 @@ namespace Game10003
 
         Vector2 Bar1 = new Vector2(165, 250);
         Vector2 Bar2 = new Vector2(165, 250);
+
+        //Texture Portal
+        Texturfishing tf = new Texturfishing();
+
+
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -42,6 +47,8 @@ namespace Game10003
             GameState = 0;
             FishBar = 250;
             FishTimer = Random.Integer(0, 300);
+            tf.Setup();
+
         }
 
         /// <summary>
