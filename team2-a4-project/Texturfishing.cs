@@ -14,7 +14,7 @@ namespace Game10003
         public void Setup()
         {
             //Loads the images 
-            FisherF = Graphics.LoadTexture("Assets/FisherMan-front.png");
+            FisherF = Graphics.LoadTexture("Assets/FisherMan-forward.png");
             FisherB = Graphics.LoadTexture("Assets/FisherMan-back.png");
 
             //tf.Setup();
@@ -28,7 +28,7 @@ namespace Game10003
         public void CastB()
         {
             
-            Graphics.Draw(FisherB, Fisherpos);
+            Graphics.Draw(FisherB, 225,215);
         }
     }
 }
