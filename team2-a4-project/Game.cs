@@ -24,9 +24,12 @@ namespace Game10003
         Color Brown = new Color(100, 100, 50);
         Color DarkGreen = new Color(100, 200, 100);
 
-        //Fishing Line Vectors
+        //Vectors
         Vector2 Line1 = new Vector2(350, 280);
         Vector2 Line2 = new Vector2(400, 350);
+
+        Vector2 Bar1 = new Vector2(165, 250);
+        Vector2 Bar2 = new Vector2(165, 250);
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -35,7 +38,7 @@ namespace Game10003
             Window.SetTitle("Fishing");
             Window.SetSize(800, 600);
             GameState = 0;
-            FishBar = 0;
+            FishBar = 250;
         }
 
         /// <summary>
@@ -94,8 +97,30 @@ namespace Game10003
 
             if (GameState == 2)
             {
+                FishBar = Bar2.Y;
                 DrawFishingLine();
-                
+                if (Bar2.Y <= 250 && !Input.IsMouseButtonPressed(MouseInput.Left))
+                {
+                    Bar2.Y += 1;
+                }
+                else if (Bar2.Y >= 99 && Input.IsMouseButtonPressed(MouseInput.Left))
+                {
+                    {
+                        Bar2.Y -= 20;
+                    }
+                }
+                if (FishBar <= 100)
+                {
+                    IsFishBarFull = true;
+                }
+                if (IsFishBarFull)
+                {
+                    GameState++;
+                    Bar2.Y = 250;
+                }
+                Draw.LineColor = Color.Red;
+                Draw.LineSize = 10;
+                Draw.Line(Bar1, Bar2);
             }
 
             //Display State Code Here
@@ -104,6 +129,10 @@ namespace Game10003
 
             }
 
+            if (GameState != 2)
+            {
+                IsFishBarFull = false;
+            }
         }
         public void DrawScenery()
         {
