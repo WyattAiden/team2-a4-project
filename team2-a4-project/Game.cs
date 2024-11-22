@@ -24,6 +24,7 @@ namespace Game10003
         Color VeryLightBlue = new Color(225, 225, 255);
         Color Brown = new Color(100, 100, 50);
         Color DarkGreen = new Color(100, 200, 100);
+        Color BackgroundGray = new Color(175, 175, 175);
 
         //Vectors
         Vector2 Line1 = new Vector2(350, 280);
@@ -68,12 +69,12 @@ namespace Game10003
             {
                 GameState++;
                 Bar2.Y = 250;
-                FishTimer = 0;
+                FishTimer = Random.Integer(0, 300);
             }
             else if (Input.IsKeyboardKeyPressed(KeyboardInput.R))
             {
                 GameState = 0;
-                FishTimer = 0;
+                FishTimer = Random.Integer(0, 300);
             }
 
             //Idle State Code Here
@@ -102,12 +103,12 @@ namespace Game10003
 
             if (GameState == 2)
             {
- 
+                DrawFishingLine();
                 FishTimer++;
                 if (FishTimer >= 350)
                 {
                     FishBar = Bar2.Y;
-                    DrawFishingLine();
+                    
                     if (Bar2.Y <= 250 && !Input.IsMouseButtonPressed(MouseInput.Left))
                     {
                         Bar2.Y += 1;
@@ -122,7 +123,9 @@ namespace Game10003
                     {
                         IsFishBarFull = true;
                     }
-
+                    Draw.LineColor = Color.Gray;
+                    Draw.FillColor = BackgroundGray;
+                    Draw.Rectangle(150, 80, 30, 180);
                     Draw.LineColor = Color.Red;
                     Draw.LineSize = 10;
                     Draw.Line(Bar1, Bar2);
