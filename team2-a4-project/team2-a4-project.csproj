@@ -23,4 +23,22 @@
     <PackageReference Include="Raylib-cs" Version="6.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Assets\fisher-man-back-cast.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\fisher-man-forward-cast.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\FisherMan-back.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\FisherMan-forward.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\water-splash-80537.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
