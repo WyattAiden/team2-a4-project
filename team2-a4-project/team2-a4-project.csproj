@@ -36,6 +36,9 @@
     <None Update="Assets\FisherMan-forward.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Fishing_rod_cast.ogg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\water-splash-80537.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
