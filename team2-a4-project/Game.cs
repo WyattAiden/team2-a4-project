@@ -30,7 +30,7 @@ namespace Game10003
         {
             Window.ClearBackground(color: Color.White);
             DrawScenery();
-            tf.CastF();
+            tf.fish();
         }
         public void DrawScenery()
         {
