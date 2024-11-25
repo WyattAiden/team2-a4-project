@@ -27,7 +27,7 @@ namespace Game10003
         Color BackgroundGray = new Color(175, 175, 175);
 
         //Vectors
-        Vector2 Line1 = new Vector2(350, 280);
+        Vector2 Line1 = new Vector2(339, 242);
         Vector2 Line2 = new Vector2(400, 350);
 
         Vector2 Bar1 = new Vector2(165, 250);
@@ -126,6 +126,7 @@ namespace Game10003
                 //Fisherman Texture Here
                 tf.CastF();
 
+                //Fishing Line Here
                 DrawFishingLine();
                 FishTimer++;
                 if (FishTimer >= 350)
@@ -160,7 +161,7 @@ namespace Game10003
             if (GameState == 3)
             {
                 tf.CastB();
-                Draw.LineSize = 3
+                Draw.LineSize = 3;
                 Draw.LineColor = Color.Gray;
                 Draw.FillColor = BackgroundGray;
                 Draw.Rectangle(500, 80, 220, 220);
