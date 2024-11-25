@@ -160,8 +160,13 @@ namespace Game10003
             if (GameState == 3)
             {
                 tf.CastB();
+                Draw.LineSize = 3
+                Draw.LineColor = Color.Gray;
+                Draw.FillColor = BackgroundGray;
+                Draw.Rectangle(500, 80, 220, 220);
             }
 
+            //Reset Bool
             if (GameState != 2)
             {
                 IsFishBarFull = false;
