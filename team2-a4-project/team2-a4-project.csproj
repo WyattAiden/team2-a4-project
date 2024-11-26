@@ -63,6 +63,9 @@
     <None Update="Assets\Siamese_Fighting_Fish.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\StockTune-Angler%27s Anthem_1732650117.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Sunfish.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
