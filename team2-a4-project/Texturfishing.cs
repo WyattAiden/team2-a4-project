@@ -20,6 +20,8 @@ namespace Game10003
         Texture2D Fish10;
         public Vector2 Fisherpos = new Vector2(250, 300);
 
+        public Vector2 Fisherpos = new Vector2(225, 215);
+
        
         public void Setup()
         {
