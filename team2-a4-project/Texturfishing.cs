@@ -43,7 +43,7 @@ namespace Game10003
        
         public void CastF()//Lets people use them
         {
-            Graphics.Draw(FisherF, Fisherpos);
+            Graphics.Draw(FisherF, 225,215);
         }
         public void CastB()
         {
