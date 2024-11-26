@@ -5,6 +5,7 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
@@ -153,6 +154,11 @@ namespace Game10003
         {
             loadedTextures.Remove(texture.FilePath);
             Raylib.UnloadTexture(texture);
+        }
+
+        internal static void LoadTexture(object C, object wasob, object source, object repos, object value1, object value2, Texturfishing assets, object value3)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
