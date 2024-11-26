@@ -52,6 +52,7 @@ namespace Game10003
             FishTimer = Random.Integer(0, 300);
             tf.Setup();
             af.Setup();
+            af.music();
         }
 
         /// <summary>
