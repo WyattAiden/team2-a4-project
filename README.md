@@ -1,7 +1,7 @@
 # team2-a4-project
 it is a fishing game 
 
-press space to put fisherman into casting stait
+press space to put fisherman into casting state
 
 hold left click to cast further 
 
@@ -9,9 +9,11 @@ press space again to cast
 
 spam left click to catch fish
 
-press E to reset
+You exit the display state by pressing space
 
-game fhishing macanics-Ethan
+press R to reset
+
+game fishing mechanics-Ethan
 
 Assets-Wyatt
 
