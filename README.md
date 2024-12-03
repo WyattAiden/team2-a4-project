@@ -1,6 +1,8 @@
 # team2-a4-project
 it is a fishing game 
 
+It has audio that plays in diferent ears
+
 press space to put fisherman into casting state
 
 hold left click to cast further 
